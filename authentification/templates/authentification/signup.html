@@ -1,0 +1,30 @@
+{% extends 'authentification/pattern.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block meet %}Register new account{% endblock %}
+
+{% block content %}
+    <div class="content">
+        {% for field in userform %}
+            <div class="field">
+                <p>{{ field.label }}:</p>
+                <p>{{ field }}</p>
+            </div>
+        {% endfor %}
+
+        {% for field in profileform %}
+            <div class="field">
+                <p>{{ field.label }}:</p>
+                <p>{{ field }}</p>
+            </div>
+        {% endfor %}
+
+        <p>{{ userform.errors }}</p>
+        <p>{{ profileform.errors }}</p>
+
+        <br>
+        <button type="submit">Sign Up</button>
+        <p class="other-way"><a href="{% url 'signin' %}">Log in</a></p>
+    </div>
+{% endblock %}
